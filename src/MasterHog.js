@@ -9,6 +9,18 @@ export default class MasterHog extends Component {
     super()
     this.state = {
       eyeColor: "blue",
+      babies: [{
+        name: 'lil hog',
+        hobby: 'fly fishing',
+      },
+      {
+        name: 'pork chop',
+        hobby: 'playing in mud'
+      },
+      {
+        name: 'bacon',
+        hobby: 'cooking'
+      }]
     }
   }
 
@@ -21,6 +33,11 @@ export default class MasterHog extends Component {
 
 
   render() {
+    const arr = []
+
+    for (let i of this.state.babies) {
+      arr.push(<BabyHog eyeColor={this.state.eyeColor} hog={i}/>)
+    }
     return (
       <div>
 
@@ -40,9 +57,7 @@ export default class MasterHog extends Component {
         </div>
         
         <ul className="hoglist">
-          <BabyHog />
-          <BabyHog />
-          <BabyHog />
+          {arr}
         </ul>
 
       </div>
